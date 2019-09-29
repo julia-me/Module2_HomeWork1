@@ -1,0 +1,14 @@
+@import "helpers/_mixins.scss";
+@import "helpers/_vars.scss";
+
+
+@import "base/_bases.scss";
+@import "base/_normalize.scss";
+
+
+@import "partials/_header.scss";
+@import "partials/_footer.scss";
+@import "partials/main";
+@import "partials/modal";
+@import "partials/cart"
+

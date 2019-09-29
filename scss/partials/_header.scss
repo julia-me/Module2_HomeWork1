@@ -1,0 +1,130 @@
+.header{
+    
+    background: $dark-bg;
+    padding: 10px;
+
+    &-logo{
+        display: flex;
+
+        &-link{
+            display: block;
+        }
+
+        .previous-page{
+            margin: auto;
+            padding: 10px;
+            color: black;
+            background: #fff;
+            font-weight: bold;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+    }
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+        @include screen(md) {
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+    .search{
+        display: flex;
+        width: 250px;
+        margin-bottom: 20px;
+        padding: 6px 6px 6px 20px;
+        background: #fff;
+        border-radius: 5px;
+        @include screen(lg) {
+            width: 320px;
+        }
+
+        &-area {
+            width: 95%;
+            font-size: 16px;
+            padding: 0 10px 0 0;
+            border: none;
+            background: none;
+            outline: none;
+            color: #3a3a3a;
+            
+            &::placeholder{
+                color: $color-red;
+            }
+        }
+    }
+    .select-filter{
+        display: flex;
+        width: 250px;
+        padding: 5px 20px;
+        background: #fff;
+        font-size: 14px;
+        border-radius: 5px;
+        outline: none;
+        color: #9c2424;
+        @include screen(lg) {
+            width: 320px;
+        }
+    }
+    &-basket{
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        margin-left: 15px;
+        @include screen(md) {
+            margin-top: 0;
+        }
+
+        &-img{
+            width: 60px;
+
+            @include screen(lg) {
+                width: 80px;
+            }
+        }
+        &-count{
+            font-size: 18px;
+            margin-right: 10px;
+            color: #a70101; 
+            background: #fff;
+            padding: 0 8px;
+            // border: 1px solid $color-red;
+            border-radius: 50%;
+
+            @include screen(lg) {
+                font-size: 28px;
+                margin-right: 20px;
+                padding: 0 13px;
+            }
+        }
+    }
+}
+
+.sticky {
+    @include screen(lg) {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 0px;
+        z-index: 100;
+        transition: 0.5s;
+    
+        .header-logo-img{
+            width: 50%;
+        }
+        .search{
+            margin-bottom: 5px;
+            padding: 3px 3px 3px 20px;
+        }
+        .header-basket-img{
+            width: 50px;
+        }
+        .header-basket-count{
+            font-size: 20px;
+            padding: 0 10px;
+        }
+    }
+}

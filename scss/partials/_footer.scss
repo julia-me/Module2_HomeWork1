@@ -1,0 +1,12 @@
+.footer{
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    background: $dark-bg;
+    padding: 10px 0;  
+
+    &-logo{
+        display: block;
+        text-align: center;
+    }
+}

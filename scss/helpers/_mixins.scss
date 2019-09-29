@@ -1,0 +1,42 @@
+// Media queries
+@mixin screen($point) {
+  $xl: 1200px;
+  $lg: 992px;
+  $md: 768px;
+  $sm: 576px;
+
+  @if $point == xl {
+    @media screen and (min-width: $xl) {
+      @content;
+    }
+  }
+    @else if $point == lg {
+    @media screen and (min-width: $lg) {
+      @content;
+    }
+  }
+  @else if $point == md {
+    @media screen and (min-width: $md) {
+      @content;
+    }
+  }
+  @else if $point == sm {
+    @media screen and (min-width: $sm) {
+      @content;
+    }
+  }
+  @else {
+    @media screen and (min-width: $point) {
+      @content;
+    }
+  }
+}
+
+@mixin progress-animation($finish) {
+  from {
+    width: 0;
+  }
+  to {
+    width: $finish;
+  }
+}
