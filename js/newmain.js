@@ -20,6 +20,16 @@ const createPizza = function(pizzaObj) {
   pizzaElement.classList.add('btnModal');
   pizzaElement.id = pizzaObj.id
 
+  // проверка для картинки
+  function imgLink (){
+    if(pizzaObj.isNew){
+      return pizzaObj.img;
+    }
+    else{
+      return`img/${pizzaObj.img}`;
+    }
+  }
+
   //modal window for each pizza
   pizzaElement.onclick = function(){
             let conposition = pizzaObj.composition.join(', ')
@@ -27,7 +37,7 @@ const createPizza = function(pizzaObj) {
             <div class="modal-container">
             <button class="modal-close"> &times; </button>
             <div class="modal-container-img">
-            <img src="img/${pizzaObj.img}" alt="" class="modal-img">
+            <img src="${imgLink()}" alt="" class="modal-img">
             </div>
             <div class="modal-container-text">
             <h2 class="modal-name">${pizzaObj.name}</h2>
@@ -40,7 +50,7 @@ const createPizza = function(pizzaObj) {
   }
 
   const imgElement = document.createElement('img');
-  imgElement.src= `img/${pizzaObj.img}`;
+  imgElement.src= imgLink();
   imgElement.classList.add('pizza-img')
   pizzaElement.append(imgElement);
 
@@ -171,7 +181,6 @@ btnBasket.addEventListener('click' , function(){
 })
 
 
-
 // sorting by price values
 const sortingPriceFilter = document.getElementsByClassName('sorting-price-filter')[0];
 let sortingPriceFilterArr = [...newPizzaList]
@@ -208,136 +217,13 @@ sortingCaloricityFilterFunc()
 
 
 // create  new pizza
-
-//открытие и закрытие поля с чекбоксами
-let generatePizzaBtn = document.getElementsByClassName('generate-pizza-btn')[0];
-let generatePizzaContent = document.getElementsByClassName('generate-pizza-content')[0];
-let closeGeneratePizzaBtn = document.getElementsByClassName('close-generate-pizza-btn')[0];
+let generatePizzaBtn = document.querySelector('.generate-pizza-btn');
 
 generatePizzaBtn.onclick = function(){
-  generatePizzaContent.style.display = "block";
-}
-closeGeneratePizzaBtn.onclick = function(){
-  generatePizzaContent.style.display = "none";
+  window.open('createPizza.html', '_self')
+  localStorage.setItem('newPizzaList', JSON.stringify(newPizzaList));
 }
 
-
-// рисуем поле с чекбоксами
-const ingredientList = document.getElementsByClassName('ingredient-list')[0];
-
-const createCheckboxes = function(compositionObj){
-  const ingredientListItem = document.createElement('div')
-  ingredientListItem.classList.add('ingredient-list-item');
-
-  const labelName = document.createElement('label');
-  // labelName.for = `${compositionObj.name}`
-  labelName.setAttribute('for', `${compositionObj.id}`)
-  labelName.innerText = `${compositionObj.name} `
-  ingredientListItem.append(labelName);
-
-  const checkbox= document.createElement('input');
-  checkbox.type = 'checkbox'
-  checkbox.name = `${compositionObj.name}`
-  checkbox.id = `${compositionObj.id}`;
-  checkbox.className = `checkbox-pizza`;
-  checkbox.dataset.caloricity = `${compositionObj.caloricity}` ;
-  checkbox.dataset.price = `${compositionObj.price}`;
-  ingredientListItem.append(checkbox);
-
-  const pPrice = document.createElement('p');
-  pPrice.innerText = `Цена: ${compositionObj.caloricity}`;
-  ingredientListItem.append(pPrice);
-
-  ingredientList.append(ingredientListItem)
-}
-
-const renderComposition = arrOfComposition=> {
-  ingredientList.innerHTML ='';
-  arrOfComposition.forEach(composition=> {
-    createCheckboxes(composition)
-  })
-}
-renderComposition(compositionList)
-
-
-// создаем новую пиццу 
-let arrOfCreadedPizzaId = [];
-let createdPizzaBtn = document.getElementsByClassName('created-pizza-btn')[0];
-let checkboxesBtn = document.getElementsByClassName('checkbox-pizza');
-let createdPizzaBtnArr = Array.from(checkboxesBtn);
-
-createdPizzaBtn.onclick = function() {
-  createdPizzaBtnArr.forEach(oneCheckboxBtn => {
-    if (oneCheckboxBtn.checked != false){
-      compositionList.forEach(comp => {
-        if(oneCheckboxBtn.id == comp.id){
-          arrOfCreadedPizzaId.push(comp.id)
-        }
-      })
-  }
-  oneCheckboxBtn.checked = false;
-  })
-  new Pizza(arrOfCreadedPizzaId)
-  renderPizza(newPizzaList);
-  arrOfCreadedPizzaId = []
-}
-
-// конструктор  новой пиццы  
-function Pizza ([...compositionIds]){
-  this.id = newPizzaList.length+1
-  this.img = 'random.png';
-  this.name = `Креативная-${this.id}`;
-  // для перебора компонентов
-  function getComposition([...compositionIds]){
-      let newCompositionArr =[];
-      for( let value of compositionList) {
-          for (let values of compositionIds) {
-              if(value.id == values) {
-                  newCompositionArr.push(value.name)
-              }
-          }
-      }
-      return newCompositionArr 
-  }
-  this.composition = getComposition([...compositionIds]);
-  // для поиска каллорий по id
-  function getCallorycity ([...compositionIds]) {
-      let caloricityArr = 0 ;
-      for( let value of compositionList){
-          for(let values of compositionIds){
-              if (value.id == values)
-              caloricityArr += +value.caloricity
-          }
-      }
-      return caloricityArr 
-  }
-  this.caloricity = +getCallorycity([...compositionIds]) + 1000;
-  // для поиска цены по id
-  function getPrice([...compositionIds]) {
-      let priceArr =[];
-      for( let value of compositionList){
-          for(values of compositionIds){
-              if (value.id == values)
-              priceArr.push(value.price)
-          }
-      }
-      function getSumm() {
-          let sum = 0;
-          for ( let value of priceArr){
-            sum += value
-          } 
-         return sum
-        }
-      return getSumm()
-  }
-  this.price =  getPrice([...compositionIds]) + 100;
-  if(this.composition.length > 0){
-    newPizzaList.unshift(this)
-  }
-  if(this.composition.length == 0){
-    alert('Вам следуюет выбрать ингридиенты для пиццы.')
-  }
-}
 
 //счетчик на корзине
 

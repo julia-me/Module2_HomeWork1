@@ -17,7 +17,7 @@ orderContent.innerHTML =  `
         <p> Имя Фамилия: <b>  ${customerInfo.name} ${customerInfo.surname} </b> </p>
         <p> Номер телефона: <b>  ${customerInfo.phone}</b> </p>
         <p> Эмейл: <b>  ${customerInfo.email} </b> </p>
-        <p> Адрес доставки: <b> ${customerInfo.deliveryInfo.city},  ${customerInfo.deliveryInfo.street},  ${customerInfo.deliveryInfo.building},  ${customerInfo.deliveryInfo.apartment} </b>  </p>
+        <p> Адрес доставки: <b>  ${customerInfo.deliveryInfo.city}, ${customerInfo.deliveryInfo.street}, дом ${customerInfo.deliveryInfo.building},  кв. ${customerInfo.deliveryInfo.apartment} </b>  </p>
         <p> Тип доставки: <b> ${customerInfo.deliveryInfo.typeOfDelivery} </b> </p>`
 
 
@@ -25,9 +25,18 @@ const createPizza = function(pizzaObj) {
     const pizzaElement =document.createElement('div')
     pizzaElement.classList.add('chosen-pizza');
 
+    function imgLink() {
+        if(pizzaObj.isNew){
+          return pizzaObj.img;
+        }
+        else{
+          return`img/${pizzaObj.img}`;
+        }
+      }
+
     const imgElement = document.createElement('img');
     // h1Element.classList.add('');
-    imgElement.src = `img/${pizzaObj.img}`
+    imgElement.src = imgLink()
     pizzaElement.append(imgElement);
   
   
@@ -89,6 +98,8 @@ renderPizza()
 
 const goMainPage = document.getElementById('goMainPage');
 goMainPage.addEventListener('click', () => {
-    localStorage.clear();
+    // localStorage.clear();
+    productsArr =[]
+    localStorage.setItem('productsArr', JSON.stringify(productsArr))
     window.open('index.html', '_self')
 })

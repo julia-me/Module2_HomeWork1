@@ -197,8 +197,10 @@ goToNextPage.addEventListener('click' , function(){
 //очистка страницы
 const cartClear = document.querySelector('.cart__clear')
 cartClear.addEventListener('click', function(){
-    localStorage.clear()
+    // localStorage.clear()
     productsArr =[]
+    localStorage.setItem('productsArr', JSON.stringify(productsArr))
+    // productsArr =[]
     renderPizza();
     cartCount()
 })

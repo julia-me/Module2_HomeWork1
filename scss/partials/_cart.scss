@@ -30,11 +30,18 @@
 
     &-buttons{
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
+        flex-direction: column;
         margin: 15px 0;
 
+        @include screen(md) {
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
         button{
-            width: 300px;
+            max-width: 350px;
+            margin: 0 auto 15px;
         }
     }
 }
@@ -43,23 +50,35 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: column;
     width: 100%;
     padding: 15px 20px;
     border: 1px solid grey;
     border-radius: 15px;
     margin-bottom: 20px;
 
+    @include screen(md) {
+        flex-direction: row;
+    }
+
     &-title{
-        width: 25%;
-        text-align: left;
+        text-align: center;
+
+        @include screen(md) {
+            width: 25%;
+            text-align: left;
+        }
     }
 
     &-price{
-        width: 15%;
         display: flex;
         justify-content: center;
         align-items: center;
         font-weight: bold;
+
+        @include screen(md) {
+            width: 15%;
+        }
     }
 
     &-remove{
@@ -69,22 +88,32 @@
         padding: 5px 10px;
         color: #000;
         margin: 15px 0;
-        width: 10%;
+        width: 130px;
     }
 
     &-count{
-        width: 5%;
+        width: 70px;
         font-size: 16px;
         text-align: center;
         font-size: 18px;
         font-weight: bold;
+        margin: 20px 0;
+
+        @include screen(md) {
+            margin: 0;
+        }
     }
     &-total-price{
-        width: 15%;
         font-size: 16px;
+        margin-top: 15px;
         text-align: center;
         color: $color-red;
         font-size: 18px;
+
+        @include screen(md) {
+            width: 15%;
+            margin-top: 0;
+        }
 
     }
 }
@@ -157,11 +186,27 @@
 .promo{
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    max-width: 350px;
+    margin: 0 auto;
+
+    @include screen(md) {
+        flex-direction: row;
+    }
 
     &-code{
-        width: 350px;
-        padding: 10px 15px;
-        font-size: 16px;
+        width: 100%;
+        padding: 7px 5px;
+        font-size: 13px;
+        margin-bottom: 15px;
+        border: 1px solid #adce93;
+
+        @include screen(md) {
+            min-width: 370px;
+            padding: 10px 15px;
+            font-size: 16px;
+            margin-bottom: 0;
+        }
     }
 }
 
@@ -169,29 +214,40 @@
     padding: 10px;
     background: #adce93;
     border: 1px solid #adce93;
-    margin-left: 20px;
     font-weight: bold;
     outline: none;
+
+    @include screen(md) {
+        margin-left: 20px;
+    }
 }
 
 .order-container-title{
     text-align: center;
 }
 .delivery{
-    width: 500px;
     margin: 0 auto;
     border: 1px solid grey;
     margin-top: 20px;
     padding: 20px;
+    max-width: 500px;
+
+    @include screen(md) {
+
+    }
 }
 
 .delivery-item{
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     margin: 10px 0; 
 
     input, select{
-        width: 250px;
+        // width: 250px;
+        border: 1px solid $color-red;
+        flex-direction: row;
+        padding: 5px;
     }
 
     &-btn{
@@ -204,17 +260,34 @@
 .order-info{
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     margin-top: 30px;
     padding: 15px;
+
+    @include screen(md) {
+        margin-bottom: 0;
+        flex-direction: row;
+    }
     
     .pizzas{
-        width: 40%;
+        margin-bottom: 30px;
 
+        @include screen(md) {
+            width: 50%;
+            margin-bottom: 0;
+
+        }
+        @include screen(lg) {
+            width: 40%;
+        }
     }
     .pizzas-info {
-        width: 50%;
-        font-size: 20px;
+        font-size: 14px;
 
+        @include screen(md) {
+            width: 50%;
+            font-size: 20px;
+        }
         .contacts p {
             display: flex;
             justify-content: space-between;
@@ -261,9 +334,6 @@
 .chosen-pizza{
     width: 100%;
     padding: 10px 0;
-    // display: flex;
-    // justify-content: space-between;
-    // align-items: center;
     height: fit-content;
     line-height: 2;
 
@@ -275,9 +345,15 @@
     }
 
     h1{
+        font-size: 14px;
         text-decoration: underline;
+
+        @include screen(md) {
+            font-size: 16px;
+        }
     }
     p{
         font-size: 18px;
     }
 }
+

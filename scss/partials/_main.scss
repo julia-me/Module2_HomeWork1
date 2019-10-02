@@ -1,6 +1,5 @@
 main{
-    background: #e9dbdb;
-    padding: 20px;
+    padding: 10px;
 }
   
 .pizzas{
@@ -122,16 +121,43 @@ main{
 
 .sorting {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    max-width: 350px;
+
+    @include screen(md) {
+        justify-content: space-around;
+        max-width: 100%;
+    }
+    @include screen(lg) {
+        justify-content: space-around;
+        flex-direction: row;
+        max-width: 100%;
+    }
 
     &-price,
     &-caloricity{
         text-align: center;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+
+        @include screen(md) {
+            margin-bottom: 30px;
+            display: block;
+        }
+        @include screen(lg) {
+            margin-bottom: 0;
+        }
 
         input{
             padding: 5px;
             border: 1px solid $color-red;
             border-radius: 5px;
+            margin-bottom: 15px;
+
+            @include screen(md) {
+                margin-bottom: 0;
+            }
         }
     }
 

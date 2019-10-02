@@ -1,0 +1,148 @@
+.create{
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    &-title{
+        text-align: center;
+        font-size: 20px;
+
+        @include screen(md) {
+            font-size: 24px;
+        }
+    }
+
+    &-wrapper{
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-image {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        margin-bottom: 50px;
+
+        @include screen(md) {
+            display: block;
+        }
+
+        img{
+            display: block;
+            max-width: 200px;
+            margin: 30px auto 40px;
+
+            @include screen(md) {
+                max-width: 250px;
+            }
+        }
+        input{
+            max-width: 300px;
+            padding: 5px 10px;
+            font-size: 16px;
+            box-shadow: 0 0 10px 3px rgb(132, 145, 148);
+            border: 0;
+
+            &:first-of-type{
+                margin-right: 20px;
+            }
+
+            @include screen(md) {
+                max-width: 350px;
+            }
+        }
+        label{
+            margin: 20px 0;
+            font-size: 18px;
+            padding-right: 10px;
+
+            @include screen(md) {
+                margin: 0;
+            }
+        }
+    }
+
+    &-composition{
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+
+        @include screen(md) {
+            justify-content: center;
+            align-items: center;
+        }
+        
+        input{
+            margin-right: 30px;
+            margin-left: 5px;
+
+            @include screen(md) {
+                margin-right: 50px;
+            }
+        }
+        label{
+            width: 30%;
+            font-size: 17px;
+            font-weight: bold;
+
+            @include screen(md) {
+                width: fit-content;
+            }
+
+            &:hover{
+                color: $color-red;
+            }
+        }
+    }
+
+    &-info{
+        text-align: center;
+        margin-bottom: 20px;
+
+        p{
+            font-size: 16px;
+        }
+    }
+
+    &-buttons{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        @include screen(md) {
+            flex-direction: row;
+        }
+
+        button{
+            width: 300px;
+            margin-bottom: 20px;
+
+            @include screen(md) {
+                margin-bottom: 0;
+            }
+        }
+    }
+    &-btn-add{
+        padding: 15px 20px;
+
+        &:first-of-type{
+            @include screen(md) {
+                margin-right: 50px;
+            }
+        }
+    }
+    &-alert{
+        color: rgb(185, 37, 37);
+        font-size: 15px;
+        display: none;
+        margin-top: 20px;
+    }
+    &-label-color{
+        color: rgb(16, 138, 16);
+    }
+}
+
+.active{
+    display: flex;
+    justify-content: center
+}
