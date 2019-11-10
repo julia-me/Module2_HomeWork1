@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,76 +8,70 @@
     <link rel="stylesheet" href="css/style.css">
     <title>delive</title>
 </head>
+
 <body>
     <header id="header" class="header">
-                <div class="container ">
-                        <div class="header-logo">
-                            <a class="header-logo-link" href="index.html">
-                                <img class="header-logo-img" src="img/logo3.png" alt="logo">
-                            </a>
-                            <button id="onPreviousPage" class="previous-page" onclick="window.history.go(-1)" >вернуться назад</button>
-                        </div>
-                        <div class="header-basket">
-                            <p class="header-basket-count"></p>
-                            <a  href="#" class="header-basket-link">
-                                <img src="img/shopping-basket.svg" alt="" class="header-basket-img">
-                            </a>
-                        </div>             
-                </div>
-        
+        <div class="container ">
+            <div class="header-logo">
+                <a class="header-logo-link" href="index.html">
+                    <img class="header-logo-img" src="img/logo3.png" alt="logo">
+                </a>
+                <button id="onPreviousPage" class="previous-page" onclick="window.history.go(-1)">вернуться
+                    назад</button>
+            </div>
+            <div class="header-basket">
+                <p class="header-basket-count"></p>
+                <a href="#" class="header-basket-link">
+                    <img src="img/shopping-basket.svg" alt="" class="header-basket-img">
+                </a>
+            </div>
+        </div>
     </header>
     <main class="main container">
         <div class="order-container">
             <h1 class="order-container-title"> Заполните информацию о доставке:</h1>
-            <div class="delivery" > 
-                    <div class="delivery-item">
-                         <label for="deliverySelect"> Выберите тип доставки </label>
-                         <select name="" id="deliverySelect">
-                      <option value="новая почта">новая почта</option>
-                      <option value="укр почта">укр почта</option>
-                      <option value="EMS">EMS</option>
-                      <option value="DHL">DHL</option>
-                          </select>
-                    </div>
-                    <div class="delivery-item">
-                        <label for="city">Город доставки * </label>
-                        <input type="text" name="" id="city">
-                    </div>
-                    <div class="delivery-item">
-                        <label for="street">Улица *</label>
-                        <input type="text" name="" id="street" >
-                    </div>
-                    <div class="delivery-item">
-                         <label for="building">Номер дома *</label>
-                        <input type="text" name="" id="building" >
-                     </div>
-                    <div class="delivery-item">
-                        <label for="apartment">Номер квартиры *</label>
-                        <input type="number" name="" id="apartment" >
-                    </div>
-                    <div class="delivery-item-btn">
-                     <button id="orderReady" class="main-btn-style" >Заказ готов</button>
-                   </div>
-                   <p> <span>*</span> - поля обязательные для заполнения</p>
+            <div class="delivery">
+                <div class="delivery-item">
+                    <label for="deliverySelect"> Выберите тип доставки </label>
+                    <select name="" id="deliverySelect">
+                        <option value="новая почта">новая почта</option>
+                        <option value="укр почта">укр почта</option>
+                        <option value="EMS">EMS</option>
+                        <option value="DHL">DHL</option>
+                    </select>
+                </div>
+                <div class="delivery-item">
+                    <label for="city">Город доставки * </label>
+                    <input type="text" name="" id="city">
+                </div>
+                <div class="delivery-item">
+                    <label for="street">Улица *</label>
+                    <input type="text" name="" id="street">
+                </div>
+                <div class="delivery-item">
+                    <label for="building">Номер дома *</label>
+                    <input type="number" name="" id="building">
+                </div>
+                <div class="delivery-item">
+                    <label for="apartment">Номер квартиры *</label>
+                    <input type="number" name="" id="apartment">
+                </div>
+                <div class="delivery-item-btn">
+                    <button id="orderReady" class="main-btn-style">Заказ готов</button>
+                </div>
+                <p> <span>*</span> - поля обязательные для заполнения</p>
             </div>
-        </div>              
+        </div>
     </main>
-<footer class="footer">
-    <div class="container">
-        <a class="footer-logo" href="#">
-            <img src="img/footer-logo.png" alt="">
-        </a>
-    </div>
-</footer>
-    
+    <footer class="footer">
+        <div class="container">
+            <a class="footer-logo" href="#">
+                <img src="img/footer-logo.png" alt="">
+            </a>
+        </div>
+    </footer>
 
     <script src="js/delivery.js"></script>
 </body>
+
 </html>
-
-
-
-
-
-
-

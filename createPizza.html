@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,65 +8,61 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Cart</title>
 </head>
-<body>
-        <header id="header" class="header">
-                <div class="container ">
-                        <div class="header-logo">
-                            <a class="header-logo-link" href="index.html">
-                                <img class="header-logo-img" src="img/logo3.png" alt="logo">
-                            </a>
-                            <button id="onPreviousPage" class="previous-page"  onclick="window.history.go(-1)">вернуться назад</button>
-                        </div>
-                        <div class="header-basket">
-                            <p class="header-basket-count"></p>
-                            <a  href="#" class="header-basket-link">
-                                <img src="img/shopping-basket.svg" alt="" class="header-basket-img">
-                            </a>
-                        </div>             
-                </div>
-        
-            </header>
-    <main class="main container create">
-        <h1 class="create-title">Вы можете собрать свою пиццу по индивидульным предпочтениям</h1>    
-        <div class="create-wrapper">
-                <div class="create-image">
-                        <img id="imgView" src="https://cdn2.iconfinder.com/data/icons/fast-food-color-line/48/fast_food_pixel_perfect_color_line_icons_10-pizza-512.png" alt="img_pizza">
-                        <input type="file" placeholder="add image" id="addImage">
-                        <label for="addTitle"> Придумайте имя для пиццы</label>
-                        <input type="text" placeholder="введите название" id="addTitle">
-                </div>
-                <div class="create-composition">
-                        <!-- <label for="compose">Cheese</label>
-                        <input type="checkbox" id="compose"> -->
-                </div>
-                <div class="create-info">
-                        <!-- <h1>Price</h1>
-                        <p>Caloricity</p> -->
-                </div>
-                <div class="create-buttons">
-                        <button id="btnCreate" class="create-btn-add main-btn-style"> Создать пиццу </button>
-                        <button id="btnAddToCart" class="create-btn-add main-btn-style"> Добавить в корзину </button>
-                </div>
-                <p class="create-alert">Для выбора пиццы Вам нужно выбрать хотя бы 1н ингредиент</p>
 
-        </div>      
+<body>
+    <header id="header" class="header">
+        <div class="container ">
+            <div class="header-logo">
+                <a class="header-logo-link" href="index.html">
+                    <img class="header-logo-img" src="img/logo3.png" alt="logo">
+                </a>
+                <button id="onPreviousPage" class="previous-page" onclick="window.history.go(-1)">вернуться
+                    назад</button>
+            </div>
+            <div class="header-basket">
+                <p class="header-basket-count"></p>
+                <a href="#" class="header-basket-link">
+                    <img src="img/shopping-basket.svg" alt="" class="header-basket-img">
+                </a>
+            </div>
+        </div>
+
+    </header>
+    <main class="main container create">
+        <h1 class="create-title">Вы можете собрать свою пиццу по индивидульным предпочтениям</h1>
+        <div class="create-wrapper">
+            <div class="create-image">
+                <img id="imgView"
+                    src="https://cdn2.iconfinder.com/data/icons/fast-food-color-line/48/fast_food_pixel_perfect_color_line_icons_10-pizza-512.png"
+                    alt="img_pizza">
+                <input type="file" placeholder="add image" id="addImage">
+                <label for="addTitle"> Придумайте имя для пиццы</label>
+                <input type="text" placeholder="введите название" id="addTitle">
+            </div>
+            <div class="create-composition">
+
+            </div>
+            <div class="create-info">
+
+            </div>
+            <div class="create-buttons">
+                <button id="btnCreate" class="create-btn-add main-btn-style"> Создать пиццу </button>
+                <button id="btnAddToCart" class="create-btn-add main-btn-style"> Добавить в корзину </button>
+            </div>
+            <p class="create-alert">Для выбора пиццы Вам нужно выбрать хотя бы 1н ингредиент</p>
+
+        </div>
     </main>
-<footer class="footer">
-    <div class="container">
-        <a class="footer-logo" href="#">
-            <img src="img/footer-logo.png" alt="">
-        </a>
-    </div>
-</footer>
-    
+    <footer class="footer">
+        <div class="container">
+            <a class="footer-logo" href="#">
+                <img src="img/footer-logo.png" alt="">
+            </a>
+        </div>
+    </footer>
+
     <script src="js/listOfPizzasAndCompozitions.js"></script>
     <script src="js/createPizza.js"></script>
 </body>
+
 </html>
-
-
-
-
-
-
-
